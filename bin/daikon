@@ -37,9 +37,9 @@ def get_argument_parser():
     train.add_argument('-b', '--batch_size', type=int, default=20,
                        help="Number of sentences in a minibatch. (default: %(default)s)")
     train.add_argument('--source_vocab_max_size', type=int, default=C.SOURCE_VOCAB_SIZE,
-                       help='Only keep n most frequent words; treat others as <unk>. (default: %(default)s)')
+                       help='Only keep n most frequent words. (default: %(default)s)')
     train.add_argument('--target_vocab_max_size', type=int, default=C.TARGET_VOCAB_SIZE,
-                       help='Only keep n most frequent words; treat others as <unk>. (default: %(default)s)')
+                       help='Only keep n most frequent words. (default: %(default)s)')
     train.add_argument('-m', '--save_to', default='model',
                        help='the folder to store model files. (default: %(default)s)')
     train.add_argument('-l', '--log_to', default='logs',
