@@ -14,6 +14,7 @@ import threading
 
 import numpy as np
 import tensorflow as tf
+from tf.keras.callbacks.EarlyStopping import EarlyStopping, ModelCheckpoint  ## rborre: Modules used to perform Early Stopping
 
 from typing import List
 
@@ -49,10 +50,18 @@ def _sample_after_epoch(reader_ids: List[reader.ReaderTuple],
         logger.debug("Actual output:\t%s", output_line)
     logger.debug("-" * 30)
 
+    
+callbacks = [EarlyStopping(monitor='val_loss', patience=2),
+        ModelCheckpoint(filepath='best_model.h5', monitor='val_loss', save_best_only=True)]:
+    """
+    Set callback function to early stop training and save the best model so far
+    """
+
 
 def train(source_data: str,
           target_data: str,
           epochs: int,
+          callbacks=callbacks,  ## rborre: Early stopping
           batch_size: int,
           source_vocab_max_size: int,
           target_vocab_max_size: int,
