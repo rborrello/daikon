@@ -36,9 +36,9 @@ class Vocabulary:
 
         words = reader.read_words(filename)
         word_counts = Counter(words)
-        sorted_words = [word for word, _ in word_counts.most_common() if word != C.UNK]
+        sorted_words = [word for word, _ in word_counts.most_common()]
         # TODO: do not hard-code the id of special symbols like that
-        sorted_words = [C.PAD, C.EOS, C.UNK] + sorted_words
+        sorted_words = [C.PAD, C.EOS] + sorted_words
         if max_size:
             sorted_words = sorted_words[:max_size]
         for i, word in enumerate(sorted_words):
@@ -63,7 +63,7 @@ class Vocabulary:
         try:
             return self._id[word]
         except KeyError:
-            return self._id[C.UNK]
+            pass
 
     def get_word(self, id: int):
         return self._word[id]
