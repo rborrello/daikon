@@ -51,11 +51,10 @@ def _sample_after_epoch(reader_ids: List[reader.ReaderTuple],
     logger.debug("-" * 30)
 
     
+## rborre: 
+## Set callbacks to early stop training and save the best model so far
 callbacks = [EarlyStopping(monitor='val_loss', patience=2),
         ModelCheckpoint(filepath='best_model.h5', monitor='val_loss', save_best_only=True)]:
-    """
-    Set callback function to early stop training and save the best model so far
-    """
 
 
 def train(source_data: str,
