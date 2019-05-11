@@ -9,13 +9,11 @@
 PAD_ID = 0
 EOS_ID = 1
 BOS_ID = EOS_ID
-UNK_ID = 2
 
 # special symbols as strings
 PAD = '<pad>'
 EOS = '<eos>'
 BOS = EOS
-UNK = '<unk>'
 
 # default names of files
 MODEL_FILENAME = 'model'
